@@ -1,14 +1,18 @@
-import React from 'react'
-import ButtonContainer from './ButtonContainer'
-import VideoContainer from './VideoContainer'
+import React from "react";
+import ButtonContainer from "./ButtonContainer";
+import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
   return (
-    <div>
-        <ButtonContainer/>
-        <VideoContainer/>
+    <div className="w-full">
+      <div>
+        <ButtonContainer />
+      </div>
+      <div>
+        <VideoContainer />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainContainer
+export default MainContainer;

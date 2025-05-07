@@ -8,8 +8,10 @@ function App() {
   return (
     <div>
       <Provider store={appStore}>
-      <Header />
-      <Body/>
+        <div>
+          <Header />
+        </div>
+        <Body />
       </Provider>
     </div>
   );
