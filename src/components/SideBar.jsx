@@ -1,4 +1,6 @@
 import { useSelector } from "react-redux";
+import { IoMdHome } from "react-icons/io";
+import { BsFillCameraVideoFill } from "react-icons/bs";
 
 const SideBar = () => {
   const isMenuOpen = useSelector((state) => state.app.isMenuOpen);
@@ -7,11 +9,15 @@ const SideBar = () => {
       <div className="flex item-center pl-2 pb-4 m-2 text-xs border-b-1">
         <ul>
           <li className="flex flex-col item-center justify-center">
-            <div className="text-lg">🏡</div>
+            <div>
+              <IoMdHome />
+            </div>
             <div>Home</div>
           </li>
           <li className="flex flex-col item-center justify-center">
-            <div className="text-lg">📺</div>
+            <span >
+              <BsFillCameraVideoFill/>
+            </span>
             <div>Shorts</div>
           </li>
           <li className="flex flex-col item-center justify-center">
