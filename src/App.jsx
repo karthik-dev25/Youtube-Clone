@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/Header";
 import appStore from "./store/appStore";
 import Body from "./components/Body";
-import Comments from "./components/Videos/Comments";
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
           <Header />
         </div>
         <Body />
-        <Comments />
       </Provider>
     </div>
   );
