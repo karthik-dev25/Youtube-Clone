@@ -23,12 +23,13 @@ const WatchPage = () => {
   const [mostPopularVideos, setMostPopularVideos] = useState([]);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(closeMenu());
     getVideoData();
     getComments();
     getMostPopularVideo();
-  }, []);
+  }, [VideoID]);
 
   const getVideoData = async () => {
     try {

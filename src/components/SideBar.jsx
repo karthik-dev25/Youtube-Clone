@@ -8,16 +8,10 @@ const SideBar = () => {
       <div className="px-2 pb-4 m-2 text-sm border-b-1">
         <ul>
           <li>
-            <Link to="/">
-              <span>🏡</span>Home
-            </Link>
+            <Link to="/">Home</Link>
           </li>
-          <li>
-            <span>📺</span>Shorts
-          </li>
-          <li>
-            <span>📼</span>Subscriptions
-          </li>
+          <li>Shorts</li>
+          <li>Subscriptions</li>
         </ul>
       </div>
       <div className="p-2 pb-4 m-2 text-sm border-b-1">
