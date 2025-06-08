@@ -1,38 +1,16 @@
-import { useSelector } from "react-redux";
 import { IoMdHome } from "react-icons/io";
 import { BsFillCameraVideoFill } from "react-icons/bs";
+import { Link } from "react-router";
 
 const SideBar = () => {
-  const isMenuOpen = useSelector((state) => state.app.isMenuOpen);
-  if (isMenuOpen)
-    return (
-      <div className="flex item-center pl-2 pb-4 m-2 text-xs border-b-1">
-        <ul>
-          <li className="flex flex-col item-center justify-center">
-            <div>
-              <IoMdHome />
-            </div>
-            <div>Home</div>
-          </li>
-          <li className="flex flex-col item-center justify-center">
-            <span >
-              <BsFillCameraVideoFill/>
-            </span>
-            <div>Shorts</div>
-          </li>
-          <li className="flex flex-col item-center justify-center">
-            <div className="text-lg">📼</div>
-            <div>Subscriptions</div>
-          </li>
-        </ul>
-      </div>
-    );
   return (
     <div>
       <div className="px-2 pb-4 m-2 text-sm border-b-1">
         <ul>
           <li>
-            <span>🏡</span>Home
+            <Link to="/">
+              <span>🏡</span>Home
+            </Link>
           </li>
           <li>
             <span>📺</span>Shorts

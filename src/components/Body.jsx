@@ -1,12 +1,14 @@
 import React from "react";
 import SideBar from "./SideBar";
-import MainContainer from "./MainContainer";
+import { Outlet } from "react-router";
+import { useSelector } from "react-redux";
 
 const Body = () => {
+  const isMenuOpen = useSelector((state) => state.app.isMenuOpen);
   return (
     <div className="flex">
-      <SideBar />
-      <MainContainer />
+      {isMenuOpen && <SideBar />}
+      <Outlet/>
     </div>
   );
 };
