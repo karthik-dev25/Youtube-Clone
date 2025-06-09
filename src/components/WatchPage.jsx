@@ -10,6 +10,7 @@ import {
 import WatchVideoContainer from "./WatchVideoContainer";
 import CommentsSection from "./CommentsSection";
 import MostPopularVideos from "./MostPopularVideos";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -74,11 +75,16 @@ const WatchPage = () => {
         </div>
       </div>
       <div className="w-[30%] ml-5">
-        {mostPopularVideos.map((items) => (
-          <Link to={"/watch?v=" + items.id} key={items.id}>
-            <MostPopularVideos video={items} />
-          </Link>
-        ))}
+        <div className="">
+          <LiveChat />
+        </div>
+        <div>
+          {mostPopularVideos.map((items) => (
+            <Link to={"/watch?v=" + items.id} key={items.id}>
+              <MostPopularVideos video={items} />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
