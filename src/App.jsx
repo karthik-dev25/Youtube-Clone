@@ -6,6 +6,8 @@ import Body from "./components/Body";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import WatchPage from "./components/WatchPage";
 import MainContainer from "./components/MainContainer";
+import DemoUseMemoUseCallback from "./components/DemoUseMemoUseCallback";
+import DemoUseRef from "./components/DemoUseRef";
 
 const appRouter = createBrowserRouter([
   {
@@ -14,6 +16,15 @@ const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <MainContainer /> },
       { path: "/watch", element: <WatchPage /> },
+      {
+        path: "/demo",
+        element: (
+          <>
+            <DemoUseMemoUseCallback />
+            <DemoUseRef />
+          </>
+        ),
+      },
     ],
   },
 ]);
