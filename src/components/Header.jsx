@@ -50,7 +50,9 @@ const Header = () => {
     try {
       let data = await fetch(YOUTUBE_SEARCH_API + query);
       let jsonData = await data.json();
-      console.log(jsonData.items);
+      if(jsonData.items){
+        setShowSearch(false)
+      }
       dispatch(addVideos(jsonData.items));
     } catch (error) {
       console.log(error);
@@ -81,7 +83,7 @@ const Header = () => {
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onFocus={() => setShowSearch(true)}
-            onBlur={() => setShowSearch(false)}
+            // onBlur={() => setShowSearch(false)}
           />
           <button className="border-1 border-gray-300 rounded-r-full px-2 py-1">
             🔍
@@ -103,7 +105,7 @@ const Header = () => {
                   className="my-2 hover:bg-gray-200"
                   onClick={() => handleSearchAPI(item)}
                   onFocus={() => setShowSearch(true)}
-                  onBlur={() => setShowSearch(false)}
+                  // onBlur={() => setShowSearch(false)}
                 >
                   🔍 {item}
                 </li>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ChatMessages from "./ChatMessages";
 import { useDispatch, useSelector } from "react-redux";
 import { addChatMessage } from "../store/chatSlice";
+import { generate, getRandomMessage } from "../utility/helper";
 
 const LiveChat = () => {
   const dispatch = useDispatch();
@@ -12,8 +13,8 @@ const LiveChat = () => {
       // API polling
       dispatch(
         addChatMessage({
-          name: "Karthik",
-          message: "Namaste React JS",
+          name: generate(),
+          message: getRandomMessage(),
         })
       );
     }, 500);

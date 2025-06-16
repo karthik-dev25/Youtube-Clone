@@ -18,6 +18,9 @@ const WatchPage = () => {
 
   //   VideoData
   const [videoData, setVideoData] = useState([]);
+  console.log(
+    videoData
+  );
   //   Comments Data
   const [comments, setComments] = useState([]);
   // Most Popular Videos
@@ -45,12 +48,14 @@ const WatchPage = () => {
     try {
       let commentsData = await fetch(COMMENTS_API + VideoID);
       let jsonData = await commentsData.json();
+      console.log(jsonData);
       setComments(
-        jsonData.items.map((items) => {
+        jsonData?.items?.map((items) => {
           return { ...items.snippet.topLevelComment.snippet, id: items.id };
         })
       );
     } catch (error) {
+      setComments([])
       console.log(error);
     }
   };
@@ -68,16 +73,21 @@ const WatchPage = () => {
       <div className="w-1/2 flex justify-start  flex-col mr-5">
         <WatchVideoContainer VideoID={VideoID} videoData={videoData} />
         <div>
-          <h1 className="font-bold mx-2 my-4">{comments.length} Comments</h1>
-          {comments.map((items) => (
+          <h1 className="font-bold mx-2 my-4">{comments ? comments.length : 0} Comments</h1>
+          {comments && comments.length && comments.map((items) => (
             <CommentsSection key={items.id} commentsData={items} />
           ))}
         </div>
       </div>
       <div className="w-[30%] ml-5">
-        <div className="">
-          <LiveChat />
-        </div>
+        {videoData &&
+          videoData.items &&
+          (videoData.items[0].snippet.liveBroadcastContent === "live") ?
+          (
+            <div className="">
+              <LiveChat />
+            </div>
+          ) : ""}
         <div>
           {mostPopularVideos.map((items) => (
             <Link to={"/watch?v=" + items.id} key={items.id}>
