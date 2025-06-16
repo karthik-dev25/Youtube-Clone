@@ -1,40 +1,40 @@
-import { IoMdHome } from "react-icons/io";
-import { BsFillCameraVideoFill } from "react-icons/bs";
 import { Link } from "react-router";
+import { sideBarList2, sideBarList1, sideBarList3 } from "../utility/helper";
 
 const SideBar = () => {
   return (
     <div>
       <div className="px-2 pb-4 m-2 text-sm border-b-1">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>Shorts</li>
-          <li>Subscriptions</li>
+          {sideBarList1.map((item) => {
+            return (
+              <li key={item.key} className="p-2 mx-2">
+                <Link to={item.value === 'Home' ? '/' : `/${item.value.toLocaleLowerCase()}`}>{item.value}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
-      <div className="p-2 pb-4 m-2 text-sm border-b-1">
+      <div className="px-2 pb-4 m-2 text-sm border-b-1">
         <ul>
-          <li>History</li>
-          <li>Playlist</li>
-          <li>Your Videos</li>
-          <li>Watch Later</li>
-          <li>Liked Videos</li>
+          {sideBarList2.map((item) => {
+            return (
+              <li key={item.key} className="p-2 mx-2">
+                <Link to={`/${item.value.toLocaleLowerCase()}`}>{item.value}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
-      <div className="p-2 pb-4 m-2 text-sm border-b-1">
+      <div className="px-2 pb-4 m-2 text-sm">
         <ul>
-          <li>Trending</li>
-          <li>Shopping</li>
-          <li>Music</li>
-          <li>Films</li>
-          <li>Live</li>
-          <li>Gaming</li>
-          <li>News</li>
-          <li>Sport</li>
-          <li>Courses</li>
-          <li>Podcast</li>
+          {sideBarList3.map((item) => {
+            return (
+              <li key={item.key} className="p-2 mx-2">
+                <Link to={`/${item.value.toLocaleLowerCase()}`}>{item.value}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>

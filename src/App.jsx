@@ -8,6 +8,7 @@ import WatchPage from "./components/WatchPage";
 import MainContainer from "./components/MainContainer";
 import DemoUseMemoUseCallback from "./components/DemoUseMemoUseCallback";
 import DemoUseRef from "./components/DemoUseRef";
+import PageNotFound from "./components/PageNotFound";
 
 const appRouter = createBrowserRouter([
   {
@@ -25,7 +26,9 @@ const appRouter = createBrowserRouter([
           </>
         ),
       },
+      
     ],
+    errorElement:<PageNotFound/>
   },
 ]);
 
